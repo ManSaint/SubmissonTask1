@@ -1,0 +1,4 @@
+Förstår värdet med TDD men faaaaaaan vad jag får ont i huvudet!
+Jag hade svårt för den här uppgiften. Känns som att jag måste tänka upp och ned, bak och fram.. Jobbigt.
+Men det var kul och känner även att jag har lärt mig något.
+Men har ingen aning om jag har gjort rätt :/
