@@ -22,13 +22,15 @@ public class RegistrationServiceManager
     public bool CheckUsernameUnique(string username)
     {
         // Check if the username already exists in the UserList
-        if (UserList.Any(user => user.Username.ToLower() == username.ToLower()))
+        if (UserList.Any(u => u.Username.ToLower() == username.ToLower()))
         {
             // Throw an exception if the username already exists
             throw new ArgumentException("Username already exists");
         }
-
-        return true;
+        else
+        {
+            return true;
+        }
     }
 
     // Check if the password format is valid
@@ -51,8 +53,8 @@ public class RegistrationServiceManager
     public bool CheckEmailFormat(string email)
     {
         // Email should be in a valid format
-        string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
-        if (Regex.IsMatch(email, pattern))
+        string emailFormat = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+        if (Regex.IsMatch(email, emailFormat))
         {
             return true;
         }
@@ -79,7 +81,7 @@ public class RegistrationServiceManager
         else
         {
             // Throw an exception if the user information is invalid
-            throw new ArgumentException("I messed up");
+            throw new ArgumentException("User information unsatisfactory");
         }
     }
 }

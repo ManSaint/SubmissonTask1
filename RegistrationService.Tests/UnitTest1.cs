@@ -9,11 +9,11 @@ public class UnitTest1
         // Create an instance of the RegistrationServiceManager class
         var testDummy = new RegistrationServiceManager();
         // Set the username to be tested
-        var username = "SaintManu";
+        string testUsername = "SaintManu";
 
         // Act
         // Call the CheckUsernameFormat method of the testDummy instance and store the result
-        var isCorrectFormat = testDummy.CheckUsernameFormat(username);
+        bool isCorrectFormat = testDummy.CheckUsernameFormat(testUsername);
 
         // Assert
         // Check if the result is true, indicating that the username is in the correct format
@@ -41,25 +41,6 @@ public class UnitTest1
         Assert.IsTrue(isUnique);
     }
 
-    // Test method to check if the email is in the correct format
-    [TestMethod]
-    public void CheckIfEmailIsInCorrectFormat()
-    {
-        // Arrange
-        // Create an instance of the RegistrationServiceManager class
-        var testDummy = new RegistrationServiceManager();
-        // Set the email to be tested
-        var email = "test@email.com";
-
-        // Act
-        // Call the CheckEmailFormat method of the testDummy instance and store the result
-        var isCorrectFormat = testDummy.CheckEmailFormat(email);
-
-        // Assert
-        // Check if the result is true, indicating that the email is in the correct format
-        Assert.IsTrue(isCorrectFormat);
-    }
-
     // Test method to check if the password is in the correct format
     [TestMethod]
     public void CheckIfPasswordIsInCorrectFormat()
@@ -68,14 +49,33 @@ public class UnitTest1
         // Create an instance of the RegistrationServiceManager class
         var testDummy = new RegistrationServiceManager();
         // Set the password to be tested
-        var password = "!abcd1234";
+        string testPassword = "!abcd1234";
 
         // Act
         // Call the CheckPasswordFormat method of the testDummy instance and store the result
-        var isCorrectFormat = testDummy.CheckPasswordFormat(password);
+        bool isCorrectFormat = testDummy.CheckPasswordFormat(testPassword);
 
         // Assert
         // Check if the result is true, indicating that the password is in the correct format
+        Assert.IsTrue(isCorrectFormat);
+    }
+
+    // Test method to check if the email is in the correct format
+    [TestMethod]
+    public void CheckIfEmailIsInCorrectFormat()
+    {
+        // Arrange
+        // Create an instance of the RegistrationServiceManager class
+        var testDummy = new RegistrationServiceManager();
+        // Set the email to be tested
+        string email = "test@email.com";
+
+        // Act
+        // Call the CheckEmailFormat method of the testDummy instance and store the result
+        bool isCorrectFormat = testDummy.CheckEmailFormat(email);
+
+        // Assert
+        // Check if the result is true, indicating that the email is in the correct format
         Assert.IsTrue(isCorrectFormat);
     }
 
@@ -87,9 +87,9 @@ public class UnitTest1
         // Create an instance of the RegistrationServiceManager class
         var testDummy = new RegistrationServiceManager();
         // Set the username, password, and email for the new user
-        var username = "SaintManu";
-        var password = "!abcd1234";
-        var email = "test@email.com";
+        string username = "SaintManu";
+        string password = "!abcd1234";
+        string email = "test@email.com";
         // Create a new User object with the provided details
         var newUser = new User(username, password, email);
 
