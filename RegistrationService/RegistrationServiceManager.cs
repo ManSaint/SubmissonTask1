@@ -1,9 +1,7 @@
 public class RegistrationServiceManager
 {
-    // List to store users
     public List<User> UserList = new List<User>();
 
-    // Check if the username format is valid
     public bool CheckUsernameFormat(string username)
     {
         // Username should contain only alphanumeric characters, be between 5 and 20 characters long
@@ -14,18 +12,17 @@ public class RegistrationServiceManager
         else
         {
             // Throw an exception if the username format is invalid
-            throw new ArgumentException("Username must be between 5 and 20 characters long");
+            throw new ArgumentException("Username must be between 5 and 20 alphanumeric characters long");
         }
     }
 
-    // Check if the username is unique
     public bool CheckUsernameUnique(string username)
     {
         // Check if the username already exists in the UserList
-        if (UserList.Any(u => u.Username.ToLower() == username.ToLower()))
+        if (UserList.Any(u => u.Username == username))
         {
             // Throw an exception if the username already exists
-            throw new ArgumentException("Username already exists");
+            throw new ArgumentException($"Username already exists");
         }
         else
         {
@@ -33,7 +30,6 @@ public class RegistrationServiceManager
         }
     }
 
-    // Check if the password format is valid
     public bool CheckPasswordFormat(string password)
     {
         // Password should be at least 8 characters long and contain at least one special character
@@ -49,7 +45,6 @@ public class RegistrationServiceManager
         }
     }
 
-    // Check if the email format is valid
     public bool CheckEmailFormat(string email)
     {
         // Email should be in a valid format
@@ -65,7 +60,6 @@ public class RegistrationServiceManager
         }
     }
 
-    // Add a new user to the UserList
     public string AddUser(User newUser)
     {
         // Check if the user information is valid and then add the user to the UserList
